@@ -1,0 +1,12 @@
+﻿<div ng-repeat="vid in vids">
+    <p>{{vid.id}}</p>
+</div>
+<youtube width="{{yt.width}}" height="{{yt.height}}" videoId="{{yt.videoId}}"></youtube>
+<button ng-click="sendControlEvent(YT_event.PLAY)">Send Play</button>
+<button ng-click="sendControlEvent(YT_event.PAUSE)">Send Pause</button>
+<button ng-click="sendControlEvent(YT_event.STOP)">Send Stop</button>
+<div class="addnotari" ng-repeat="ads in current.adnotari">
+    <p>Adnotari</p>
+    <p>{{ads.tip}}</p>
+    <adnotare adnotare="ads"></adnotare>
+</div>

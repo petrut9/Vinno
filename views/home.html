@@ -1,0 +1,11 @@
+﻿<div class="main">
+    <form name="NewVideo" ng-submit="submit()">
+        <input type="text" ng-model="link" name="Link">
+        <input type="submit" id="Submit" value="submit">
+    </form>
+    <div ng-repeat="video in videos">
+        <a href="#/videos/{{$index}}">
+            <img ng-src="{{video.imagine}}" />
+        </a>
+    </div>
+</div>
