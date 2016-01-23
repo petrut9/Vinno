@@ -34,7 +34,7 @@
         </div>
         <div class="row">
             <div class="video__annotations col-md-offset-2 col-md-8">
-                <div class="annotation__container annotation__container--nopadding" ng-repeat="ads in current.adnotari">
+                <div class="annotation__container annotation__container--nopadding" ng-repeat="ads in current.adnotari track by ads.id">
                     <button type="button" ng-click="removeAdnot(ads)" class="btn btn-danger btn-xs">Delete</button>
                     <adnotare adnotare="ads"></adnotare>
                 </div>

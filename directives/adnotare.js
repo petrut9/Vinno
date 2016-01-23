@@ -7,7 +7,7 @@
         '</div>' +
         '<div class="col-md-11">' +
             '<div class="annotation__content">' +
-                '<p>{{adnotare.timp}} -> {{adnotare.valoare}}</p>' +
+                '<p>{{adnotare.timp}} :  {{adnotare.valoare}}</p>' +
             '</div>' +
         '</div>' +
     '</div>';
@@ -19,7 +19,7 @@
         '</div>' +
         '<div class="col-md-11">' +
             '<div class="annotation__content">' +
-                '<article>Shared on <a href="{{adnotare.valoare}}" target="_blank">YouTube</a>.</article>' +
+                '<article>{{adnotare.timp}} :  Watch adnotation on <a href="{{adnotare.valoare}}" target="_blank">YouTube</a>.</article>' +
             '</div>' +
         '</div>' +
     '</div>';

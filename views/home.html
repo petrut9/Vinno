@@ -19,7 +19,7 @@
         </div>
     </form>
     <div class="row annotation__container">
-        <div class="video__container col-md-4 col-sm-6" ng-repeat="video in videos">
+        <div class="video__container col-md-4 col-sm-6" ng-repeat="video in videos track by video.id">
             <div class="video__preview">
                 <a href="#/videos/{{$index}}">
                     <img ng-src="{{video.imagine}}" />

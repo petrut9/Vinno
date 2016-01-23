@@ -19,12 +19,21 @@
         this.$broadcast(4);
     });*/
     $scope.$on(YT_event.STATUS_CHANGE, function (event, data) {
-        $scope.paused = Math.trunc((data+5) / 60) + ":" + Math.trunc((data+5) % 60);
+        $scope.paused = Math.trunc(data / 60) + ":" + Math.trunc(data % 60);
     });
+    $scope.getAnnoId = function () {
+        var id = -1;
+        for (var i = 0; i < $scope.current.adnotari.length; i++) {
+            if ($scope.current.adnotari[i].id > id)
+                id = $scope.current.adnotari[i].id;
+        }
+        return id+1;
+    };
     $scope.submitTextAdn = function () {
         $scope.sendControlEvent(YT_event.PAUSE);
+        $scope.sendControlEvent(YT_event.PAUSE);
         var tmp = {
-            id:$scope.current.adnotari.length,
+            id:$scope.getAnnoId(),
             tip: 'text',
             timp: $scope.paused,
             valoare: $scope.adnotation_c
@@ -36,8 +45,9 @@
     };
     $scope.submitVideoAdn = function () {
         $scope.sendControlEvent(YT_event.PAUSE);
+        $scope.sendControlEvent(YT_event.PAUSE);
         var tmp = {
-            id: $scope.current.adnotari.length,
+            id: $scope.getAnnoId(),
             tip: 'video',
             timp: $scope.paused,
             valoare: $scope.adnotation_c

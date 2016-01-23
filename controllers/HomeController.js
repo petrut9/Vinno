@@ -24,7 +24,7 @@
                 id: vidId,
                 title: $scope.title_c,
                 imagine: 'https://img.youtube.com/vi/' + vidId + '/0.jpg',
-                adnotari: [{id:0,tip:'text',timp:'1:11',valoare:'yolo'}]
+                adnotari: []
             };
             $scope.videos.push(aux);
             localStorage.clear();
@@ -37,5 +37,23 @@
         $scope.videos.splice(index, 1);
         localStorage.clear();
         localStorage.setItem("VIDEO", JSON.stringify($scope.videos));
+    };
+    var blob = new Blob([JSON.stringify($scope.videos)], { type: 'text/json' });
+    $scope.url = (window.URL || window.webkitURL).createObjectURL(blob);
+
+    $scope.add = function () {
+        console.log('am ajuns aici1');
+        var f = document.getElementById('file').files[0],
+            r = new FileReader();
+        r.onloadend = function (e) {
+            var temp = JSON.parse(e.target.result);
+            console.log('am ajuns aici');
+            for (var i = 0; i < temp.length; i++) {
+                $scope.videos.push(temp[i]);
+            }
+            /* localStorage.clear();
+                localStorage.setItem("VIDEO", JSON.stringify($scope.videos));*/
+        }
+        r.readAsBinaryString(f);
     }
 }]);
