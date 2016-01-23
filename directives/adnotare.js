@@ -31,7 +31,7 @@
                 template = textTemplate;
                 break;
             case 'video':
-                template = textTemplate;
+                template = videoTemplate;
                 break;
         }
         return template;

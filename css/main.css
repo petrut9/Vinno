@@ -1,0 +1,108 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,300,500,700,900);
+@import url(https://fonts.googleapis.com/css?family=Russo+One);
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #FBFEF9;
+}
+
+.text--300 {
+	font-weight: 300;
+}
+
+.text--700 {
+	font-weight: 700;
+}
+
+.text--500 {
+	font-weight: 500;
+}
+
+.text--900 {
+	font-weight: 900;
+}
+
+.logo {
+	margin: 0;
+	color: white;
+	font-size: 28px;
+	font-family: 'Russo One', sans-serif;
+}
+
+.logo:hover {
+	color: white;
+}
+
+.header {
+	padding: 20px;
+	background-color: #000003;
+}
+
+.preview {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	opacity: 0.5;
+	z-index: -1;
+}
+
+.video__text {
+	color: #000004;
+	line-height: 50px;
+	text-align: center;
+}
+
+.video__player {
+	width: 100%;
+	height: 480px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.42);
+	background-color: black;
+}
+
+.video__container img {
+	width: 100%;
+	height: 240px;
+}
+
+.annotation__container {
+	border: 1px solid #eee;
+	padding: 25px 0;
+	margin: 25px 0;
+	background-color: white;
+	cursor: pointer;
+}
+
+.annotation__container--nopadding {
+	padding: 0;
+}
+
+.annotation__element {
+	padding: 20px 0;
+	margin: 0;
+}
+
+.annotation__element + .annotation__element {
+	border-top: 1px solid #eee;
+}
+
+.annotation__icon {
+	border-right: 1px solid #eee;
+}
+
+.annotation__content p {
+	margin: 0;
+}
+
+.annotation__content img {
+	max-width: 100%;
+	height: auto;
+}
+
+footer {
+	text-align: center;
+}

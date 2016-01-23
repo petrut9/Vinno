@@ -20,10 +20,5 @@ app.config(function ($routeProvider) {
             redirectTo: '/'
         });
 });
-/*app.factory('templates', function () {
-    return {
-        text: 'templates/textTemplate.html',
-        video: 'templates/videoTemplate.html'
-    }
-});*/
+
 

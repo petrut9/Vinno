@@ -1,11 +1,35 @@
-﻿<div class="main">
-    <form name="NewVideo" ng-submit="submit()">
-        <input type="text" ng-model="link" name="Link">
-        <input type="submit" id="Submit" value="submit">
+﻿<div class="container">
+    <form class="form-horizontal row annotation__container">
+        <div class="form-group">
+            <label for="inputTitle3" class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-8">
+                <input type="text" ng-model="title_c" class="form-control" id="inputTitle3" placeholder="Title">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputLink3" class="col-sm-2 control-label">Link</label>
+            <div class="col-sm-8">
+                <input type="text" ng-model="link" class="form-control" id="inputlink3" placeholder="Youtube link">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" ng-click="submit()" class="btn btn-default">Add</button>
+            </div>
+        </div>
     </form>
-    <div ng-repeat="video in videos">
-        <a href="#/videos/{{$index}}">
-            <img ng-src="{{video.imagine}}" />
-        </a>
+    <div class="row annotation__container">
+        <div class="video__container col-md-4 col-sm-6" ng-repeat="video in videos">
+            <div class="video__preview">
+                <a href="#/videos/{{$index}}">
+                    <img ng-src="{{video.imagine}}" />
+                </a>
+            </div>
+            <div class="video__content">
+                <h4>{{video.title}}</h4>
+                <button type="button" ng-click="deleteVid($index)" class="btn btn-danger">Delete</button>
+            </div>
+        </div>
+
     </div>
 </div>

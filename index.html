@@ -1,15 +1,40 @@
 ﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" class="no-js" lang="">
 <head>
-    <title>Vinno</title>
-</head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Vinno - Video</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css"></head>
 <body ng-app="myApp">
-    <div class="header"><a href="/#/"><p>Vinno</p></a></div>
+    <header>
+        <div class="header container-fluid">
+            <div class="row">
+                <div class="col-md-1">
+                    <a class="logo" href="/#/">Vinno</a>
+                </div>
+                <nav class="col-md-4 col-md-offset-7">
+                    <ul class="nav nav-pills">
+                        <li><a href="#">Import</a></li>
+                        <li><a href="#">Export</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
     <div ng-view></div>
-    <div class="container">
-    </div>
-    
+
+    <footer>
+        <p>Coypright &copy; Vinno - CLIW 2016</p>
+    </footer>
+
     <!--Scripturi-->
+    <script src="Scripts/jquery-2.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="Scripts/angular.min.js"></script>
     <script src="Scripts/angular-route.min.js"></script>
     <script src="app/video.js"></script>
@@ -24,10 +49,6 @@
     <!--Directive-->
     <script src="directives/loadVideo.js"></script>
     <script src="directives/adnotare.js"></script>
-    
-    
-    
-    
-    
+
 </body>
 </html>

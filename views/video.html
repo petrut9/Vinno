@@ -1,12 +1,44 @@
-﻿<div ng-repeat="vid in vids">
-    <p>{{vid.id}}</p>
+﻿<div class="col-md-12">
+    <h1 class="video__text text--300">{{current.title}}</h1>
 </div>
-<youtube width="{{yt.width}}" height="{{yt.height}}" videoId="{{yt.videoId}}"></youtube>
-<button ng-click="sendControlEvent(YT_event.PLAY)">Send Play</button>
-<button ng-click="sendControlEvent(YT_event.PAUSE)">Send Pause</button>
-<button ng-click="sendControlEvent(YT_event.STOP)">Send Stop</button>
-<div class="addnotari" ng-repeat="ads in current.adnotari">
-    <p>Adnotari</p>
-    <p>{{ads.tip}}</p>
-    <adnotare adnotare="ads"></adnotare>
-</div>
+<div class="preview" style="background-image: url('{{current.imagine}}')"></div>
+
+<section class="container">
+    <div class="video">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="video__player">
+                    <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoId}}"></youtube>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="video__annotations col-md-offset-2 col-md-8">
+                <div class="annotation__container annotation__container">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputAdn3" class="col-sm-2 control-label">Adnotation</label>
+                            <div class="col-sm-8">
+                                <input type="text" ng-model="adnotation_c" class="form-control" id="inputAdn3" placeholder="Adnotation">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="submit" ng-click="submitTextAdn()" class="btn btn-default">Add text</button>
+                                <button type="submit" ng-click="submitVideoAdn()" class="btn btn-default">Add video</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="video__annotations col-md-offset-2 col-md-8">
+                <div class="annotation__container annotation__container--nopadding" ng-repeat="ads in current.adnotari">
+                    <button type="button" ng-click="removeAdnot(ads)" class="btn btn-danger btn-xs">Delete</button>
+                    <adnotare adnotare="ads"></adnotare>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

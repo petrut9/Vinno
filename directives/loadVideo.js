@@ -46,7 +46,7 @@
                                     message.data = player.getCurrentTime();
                                     break;
                                 default:
-                                    message.data = player.getDuration();
+                                    message.data = player.getCurrentTime();
                             }
                             scope.$apply(function () {
                                 scope.$emit(message.event,message.data);
