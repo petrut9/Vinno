@@ -8,18 +8,23 @@
             videoid: "@"
         },
 
-        template: '<div></div>',
+        template: '<div id="player"></div>',
 
-        link: function (scope, element) {
-            var tag = document.createElement('script');
-            tag.src = "https://www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
+        link: function (scope, element, attrs, $rootScope) {
+            var len = $('script[src="https://www.youtube.com/iframe_api"]').length;
+            console.log(len);
+            if (len === 0) {
+                var tag = document.createElement('script');
+                tag.src = "https://www.youtube.com/iframe_api";
+                var firstScriptTag = document.getElementsByTagName('script')[0];
+                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+            }
             var player;
+            var ready = 1;
 
             $window.onYouTubeIframeAPIReady = function () {
-
+                ready = 0;
+                console.log("YouTube API Ready");
                 player = new YT.Player(element.children()[0], {
                     playerVars: {
                         autoplay: 0,
@@ -38,9 +43,10 @@
 
                     events: {
                         'onStateChange': function (event) {
-                            var message={
+                            var message = {
                                 event: YT_event.STATUS_CHANGE,
-                                data: 0};
+                                data: 0
+                            };
                             switch (event.data) {
                                 case YT.PlayerState.PAUSED:
                                     message.data = player.getCurrentTime();
@@ -49,12 +55,15 @@
                                     message.data = player.getCurrentTime();
                             }
                             scope.$apply(function () {
-                                scope.$emit(message.event,message.data);
+                                scope.$emit(message.event, message.data);
                             });
                         }
                     }
                 });
-            }
+            };
+
+            console.log('ready: ' + ready);
+            if (ready === 1) onYouTubeIframeAPIReady();
 
             scope.$watch('videoid', function (newValue, oldValue) {
                 if (newValue == oldValue) {
@@ -89,6 +98,9 @@
             scope.$on(YT_event.DESTROY, function () {
                 player.destroy();
             });
+            /*scope.$on('$destroy', function () {
+                console.log('destroy');
+            });*/
         }
     };
 });
